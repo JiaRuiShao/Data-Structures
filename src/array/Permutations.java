@@ -8,6 +8,10 @@ import java.util.Queue;
 class Permutations {
 
     /**
+     * Permutations
+     * Solution: insert each number to previous steps
+     *
+     * [[]] -> [[1]] -> [[2, 1]] [[1, 2]] -> [[3, 2, 1]] [[2, 3, 1]] [[2, 1, 3]] [[3, 1, 2]] [[1, 3, 2]] [[1, 2, 3]]
      * Time: O(N∗N!)
      * Space: O(N∗N!)
      *
