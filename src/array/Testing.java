@@ -30,11 +30,6 @@ public class Testing {
     }
 
     public static void main(String[] args) {
-        List<List<Integer>> result = findPermutations(new int[]{1, 2, 3, 4});
-        System.out.println("Here are all the permutations: " + result);
-        System.out.println(result.size());
-        System.out.println();
-        boolean[] myBoolean = new boolean[1];
-        System.out.println(Arrays.toString(myBoolean));
+        System.out.println(-7 % 5);
     }
 }
