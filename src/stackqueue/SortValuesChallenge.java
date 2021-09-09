@@ -4,6 +4,15 @@ import java.util.Stack;
 
 public class SortValuesChallenge {
 
+    /**
+     * Time: O(n^2)
+     * Explanation: in order to get and make sure the first num is in the right position, O(n) time;
+     * the 2nd number is gonna take O(n-1) time, ... the last number takes O(1) time.
+     * Total time = O(n) + O(n-1) + ...+O(1) = O(n*(n+1)/2) = O(n^2)
+     * Space: O(n)
+     *
+     * @param stack the unsorted stack
+     */
     public static void sortStackDesc(Stack<Integer> stack) {
         if (stack == null || stack.size() == 0) {
             return;
