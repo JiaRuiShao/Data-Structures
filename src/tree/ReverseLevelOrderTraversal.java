@@ -2,7 +2,7 @@ package tree;
 
 import java.util.*;
 
-class TreeNode {
+/*class TreeNode {
     int val;
     TreeNode left;
     TreeNode right;
@@ -10,7 +10,7 @@ class TreeNode {
     TreeNode(int x) {
         val = x;
     }
-};
+};*/
 
 public class ReverseLevelOrderTraversal {
 

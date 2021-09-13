@@ -1,0 +1,31 @@
+			    100		
+			/   	  \
+		  55		   200
+	     /	\			\
+	    25	75			350
+	   /  \ 			  
+	  10  50			  
+
+s: 
+prev = 350, curr = null
+10=25=50=55=100=200=350
+
+class TreeNode {
+    int val;
+    TreeNode left;
+    TreeNode right;
+
+    TreeNode(int x) {
+        val = x;
+    }
+}
+
+TreeNode root = new TreeNode(100);
+root.left = new TreeNode(55);
+root.right = new TreeNode(200);
+root.left.left = new TreeNode(25);
+root.left.right = new TreeNode(75);
+root.right.right = new TreeNode(350);
+root.left.left.left = new TreeNode(10);
+root.left.left.right = new TreeNode(50);
+

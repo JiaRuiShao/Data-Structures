@@ -12,7 +12,7 @@ public class LevelOrderTraversal {
      * 1) Find the height H of the tree (= height of the root node)
      * 2) for level h from 0...H-1, get the nodes whose level is h recursively
      *
-     * Time: O(N)+O(1+2^1+...2^(H-1)) = O(N) + O(2^H) = O(2^H)
+     * Time: O(N)+O(1+2^1+...2^(H-1)) = O(N) + O(2^H) = O(N) + O(2^H - 1)
      * Space: O(N)
      *
      * @param root the root of the given tree
