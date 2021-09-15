@@ -1,8 +1,20 @@
+/*
+ * In the following tree, the expected output would be (-> represents next):
+ * 100 -> 55 -> 200 -> 25 -> 75 -> 150 -> 350 -> 10 -> 50 -> 80 -> 400
+ *
+ * 			    100
+ * 			/   	   \
+ * 		  55		   200
+ * 	     /	\		   / \
+ * 	    25	75		 150 350
+ * 	   /  \   \            \
+ * 	  10  50  80           400
+ *
+ */
+
 package tree;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Queue;
 
 public class LevelOrderTraversal {
@@ -18,7 +30,7 @@ public class LevelOrderTraversal {
      * @param root the root of the given tree
      * @return the BFS
      */
-    public String levelOrderTraverse1(BinaryTreeNode root) {
+    public String levelOrderTraverse1(TreeNode root) {
         int height = getHeight(root);
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < height; i++) {
@@ -28,7 +40,7 @@ public class LevelOrderTraversal {
         return sb.toString();
     }
 
-    private int getHeight(BinaryTreeNode curr) {
+    private int getHeight(TreeNode curr) {
         // base case
         if (curr == null) {
             return -1; // make sure the leaf node's height is 0
@@ -37,11 +49,11 @@ public class LevelOrderTraversal {
         return Math.max(getHeight(curr.left), getHeight(curr.right)) + 1;
     }
 
-    private void getResult(BinaryTreeNode curr, StringBuilder sb, int height) {
+    private void getResult(TreeNode curr, StringBuilder sb, int height) {
         if (curr == null || height < 0) {
             return; // base case
         } else if (height == 0) {
-            sb.append(curr.data).append(" ");
+            sb.append(curr.val).append(" ");
         } else { // recursive rules
             getResult(curr.left, sb, height - 1);
             getResult(curr.right, sb, height - 1);
@@ -65,20 +77,20 @@ public class LevelOrderTraversal {
      * @param root the root of the given tree
      * @return the level-order BFS result
      */
-    public String levelOrderTraverse2(BinaryTreeNode root) {
+    public String levelOrderTraverse2(TreeNode root) {
         StringBuilder sb = new StringBuilder();
 
         if (root == null) {
             return sb.toString();
         }
-        BinaryTreeNode temp = null;
-        Queue<BinaryTreeNode> queue1 = new LinkedList<>();
-        Queue<BinaryTreeNode> queue2 = new LinkedList<>();
+        TreeNode temp = null;
+        Queue<TreeNode> queue1 = new LinkedList<>();
+        Queue<TreeNode> queue2 = new LinkedList<>();
         queue1.offer(root);
         while (!queue1.isEmpty()) {
             while (!queue1.isEmpty()) {
                 temp = queue1.poll();
-                sb.append(temp.data).append(" ");
+                sb.append(temp.val).append(" ");
                 if (temp.left != null) {
                     queue2.offer(temp.left);
                 }
@@ -101,21 +113,21 @@ public class LevelOrderTraversal {
      * @param root the root of the given tree
      * @return the level-order BFS result
      */
-    public String levelOrderTraverse3(BinaryTreeNode root) {
+    public String levelOrderTraverse3(TreeNode root) {
         StringBuilder sb = new StringBuilder();
         // corner case
         if (root == null) {
             return sb.toString();
         }
-        BinaryTreeNode temp = null;
-        Queue<BinaryTreeNode> queue = new LinkedList<>();
+        TreeNode temp = null;
+        Queue<TreeNode> queue = new LinkedList<>();
         queue.offer(root);
         queue.offer(null);
 
         while(queue.peek() != null) {
             while (queue.peek() != null) {
                 temp = queue.poll();
-                sb.append(temp.data).append(" ");
+                sb.append(temp.val).append(" ");
                 if (temp.left != null) {
                     queue.offer(temp.left);
                 }
@@ -131,14 +143,19 @@ public class LevelOrderTraversal {
 
 
     public static void main(String[] args) {
-        List<Integer> input = new ArrayList<>();
-        input.add(100);input.add(50);input.add(200);input.add(25);input.add(75);
-        input.add(350);input.add(80);
+        TreeNode root = new TreeNode(100);
+        root.left = new TreeNode(55);
+        root.right = new TreeNode(200);
+        root.right.left = new TreeNode(150);
+        root.left.left = new TreeNode(25);
+        root.left.right = new TreeNode(75);
+        root.right.right = new TreeNode(350);
+        root.left.right.right = new TreeNode(80);
+        root.left.left.left = new TreeNode(10);
+        root.left.left.right = new TreeNode(50);
+        root.right.right.right = new TreeNode(400);
 
-        BinaryTree bt = new BinaryTree();
         LevelOrderTraversal traverse = new LevelOrderTraversal();
-
-        BinaryTreeNode root = bt.createBST(input);
         System.out.println("Level Order Traversal (naive):");
         System.out.println(traverse.levelOrderTraverse1(root));
         System.out.println();
