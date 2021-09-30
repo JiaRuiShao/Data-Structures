@@ -54,4 +54,12 @@ public class Graph {
             //this.adjacencyList[destination].insertAtEnd(source);
         }
     }
+
+    public void addEdgeUndirected(int source, int destination) {
+        if (source < vertices && destination < vertices) { // if valid, add at the end
+            this.adjacencyList[source].insertAtEnd(destination);
+            this.adjacencyList[destination].insertAtEnd(source);
+        }
+    }
+
 }
