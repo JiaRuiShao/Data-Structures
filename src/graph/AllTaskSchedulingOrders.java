@@ -42,13 +42,13 @@ public class AllTaskSchedulingOrders {
      * Time: O(V! * E)
      * Space: O(V!)
      *
-     * @param result the list to store the added courses
-     * @param isPrerequisite the map tp store the courses and the list of courses that require this course as a prerequisite
-     * @param needPrerequisite the courses and the num of prerequisite courses this course needs
+     * @param result            the list to store the added courses
+     * @param isPrerequisite    the map tp store the courses and the list of courses that require this course as a prerequisite
+     * @param needPrerequisite  the courses and the num of prerequisite courses this course needs
      * @param preClearedCourses the queue that store the courses that doesn't need a prerequisite or its prerequisites are satisfied
-     * @param courseNum the num of courses in the given input
+     * @param courseNum         the num of courses in the given input
      */
-    private static void printCourses(List<Integer> result , Map<Integer, List<Integer>> isPrerequisite, Map<Integer, Integer> needPrerequisite, Queue<Integer> preClearedCourses, int courseNum) {
+    private static void printCourses(List<Integer> result, Map<Integer, List<Integer>> isPrerequisite, Map<Integer, Integer> needPrerequisite, Queue<Integer> preClearedCourses, int courseNum) {
         // base case
         if (result.size() == courseNum) {
             System.out.println(result);
@@ -87,11 +87,11 @@ public class AllTaskSchedulingOrders {
         System.out.println();*/
 
         AllTaskSchedulingOrders.printOrders(4,
-                new int[][] { new int[] { 3, 2 }, new int[] { 3, 0 }, new int[] { 2, 0 }, new int[] { 2, 1 } });
+                new int[][]{new int[]{3, 2}, new int[]{3, 0}, new int[]{2, 0}, new int[]{2, 1}});
         System.out.println();
 
-        AllTaskSchedulingOrders.printOrders(6, new int[][] { new int[] { 2, 5 }, new int[] { 0, 5 }, new int[] { 0, 4 },
-                new int[] { 1, 4 }, new int[] { 3, 2 }, new int[] { 1, 3 } });
+        AllTaskSchedulingOrders.printOrders(6, new int[][]{new int[]{2, 5}, new int[]{0, 5}, new int[]{0, 4},
+                new int[]{1, 4}, new int[]{3, 2}, new int[]{1, 3}});
         System.out.println();
     }
 }
